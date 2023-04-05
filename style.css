@@ -1,12 +1,31 @@
 /* Card styles */
 .container {
-    width: 50rem;
-    margin: 0 auto;
-    padding: 0 1rem;
+    width: fit-content;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: lightgray;
+    margin: 0 20px;
+    background-image: url('desktop-wallpaper-rick-y-morty-iphone-rick-morty-poster-rick-con-respecto-iphone-rick-and-morty-rick-and-morty-fan-art-thumbnail.jpg');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+  }
+
+  .cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
   }
 
 .card {
   display: flex;
+  padding: 10px;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
@@ -14,7 +33,21 @@
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  width: 40rem;
+  
+}
+
+/* like dislike div */
+.like-dislike-btn{
+  border: 1px solid red;
+  margin: 16px auto;
+  padding: 10px;
+
+}
+
+.like-btn{
+  size: 10px;
+  color: #3e8e41;
+  text-align: left;
 }
 
 .card img {
@@ -70,7 +103,33 @@ color: #4CAF50;
 }
 
 body {
-    background-image: url('desktop-wallpaper-rick-y-morty-iphone-rick-morty-poster-rick-con-respecto-iphone-rick-and-morty-rick-and-morty-fan-art-thumbnail.jpg');
-    background-size: contain;
-    background-repeat: repeat;
+    background-color: black;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
+
+
+  /* Style buttons */
+.like-btn, .dislike-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the active class (the clicked button) */
+.active {
+  color: red;
+}
+
+/* Style the count */
+.like-count {
+  font-size: 20px;
+}
+
+.like-dislike-btn{
+  margin-left: 50%;
+}

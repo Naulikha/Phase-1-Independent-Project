@@ -1,48 +1,5 @@
 function renderOneCharacter(character){
-
   
-  // initial likeCount
-  let likeCount = 0
-  let dislikeCount = 0
-
-  const likeBtn = document.createElement('button')
-  likeBtn.className = 'like-btn'
-  likeBtn.innerHTML = '<i class="fa fa-thumbs-up"></i>'
-
-  // onClick Event
-  likeBtn.addEventListener('click', () => {
-    likeCount ++
-    count.textContent = likeCount
-  })
-  
-  const dislikeBtn = document.createElement('button')
-  dislikeBtn.className = 'dislike-btn'
-  dislikeBtn.innerHTML = '<i class="fa fa-thumbs-down"></i>'
-
-  dislikeBtn.addEventListener('click', () => {
-    dislikeCount ++
-    dcount.textContent = dislikeCount
-  })
-  
-  const count = document.createElement('span')
-  count.className = 'like-count'
-  count.innerHTML = likeCount
-
-  const dcount = document.createElement('span')
-  dcount.className = 'dislike-count'
-  dcount.innerHTML = dislikeCount
-  
-  const likeDislike = document.createElement('div')
-  likeDislike.className = 'like-dislike-btn'
-
-  // append buttons
-  likeDislike.append(likeBtn)
-  likeDislike.append(count)
-  likeDislike.append(dislikeBtn)
-  likeDislike.append(dcount)
-  
-
-
     
     let card = document.createElement("li")
     card.className = "card"
@@ -60,13 +17,29 @@ function renderOneCharacter(character){
     <p>First appearance: ${character.episode[0]}</p>
     </div>
 
+    <div class="like-dislike-btn">
+    
+            <!-- Add icon link -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         
+         <!-- Add a like button -->
+         <button class="like-btn">
+           <i class="fa fa-thumbs-up"></i>
+         </button>
+         
+         <!-- Add a dislike button -->
+         <button class="dislike-btn">
+           <i class="fa fa-thumbs-down"></i>
+         </button>
+         
+         <!-- Add a count -->
+         <span class="like-count">0</span>
+            
+</div>
     `
-
-    card.append(likeDislike)
-
+// a  
     document.querySelector('#character-list').appendChild(card)
 }
-
 
 let characters = [];
 
@@ -96,7 +69,6 @@ function searchCharacters(query){
       document.querySelector('#character-list').innerHTML = '';
       characters.forEach(character => renderOneCharacter(character));
     }
-
   });
 
 function initialize(){
