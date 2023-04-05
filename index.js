@@ -1,5 +1,4 @@
-function renderOneCharacter(character){
-
+async function renderOneCharacter(character){
   
   // initial likeCount
   let likeCount = 0
@@ -55,9 +54,10 @@ function renderOneCharacter(character){
     
     </p>
     <p>Species: ${character.species}</p>
-    <p>Status: ${character.status}</p>
-    <p>Gender: ${character.gender}</p>
-    <p>First appearance: ${character.episode[0]}</p>
+    <p>Status:  ${character.status}</p>
+    <p>Gender: <a id="link" href ="${character.gender}"> ${character.gender}</a></p>
+    <p>First appearance:<a href ="${character.episode[0]}" id="episode"> ${character.episode[0]}</a></p>
+    <p>Origin:  ${character.origin.name}</p>
     </div>
 
     `
@@ -65,7 +65,25 @@ function renderOneCharacter(character){
     card.append(likeDislike)
 
     document.querySelector('#character-list').appendChild(card)
+
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+      link.style.textDecoration = 'none';
+      link.style.color = 'inherit';
+      
+      link.addEventListener('mouseover', function() {
+        link.style.textDecoration = 'underline';
+        link.style.color = 'green';
+      });
+      
+      link.addEventListener('mouseout', function() {
+        link.style.textDecoration = 'none';
+        link.style.color = 'inherit';
+      });
+    });
 }
+
 
 
 let characters = [];
@@ -98,9 +116,13 @@ function searchCharacters(query){
     }
 
   });
-
+ 
 function initialize(){
     getAllCharacters()
 }
 
-initialize()
+document.addEventListener("DOMContentLoaded", function(event) {
+  // your code here
+  initialize()
+});
+
