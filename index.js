@@ -56,7 +56,7 @@ async function renderOneCharacter(character){
     <p>Species: ${character.species}</p>
     <p>Status:  ${character.status}</p>
     <p>Gender: <a id="link" href ="${character.gender}"> ${character.gender}</a></p>
-    <p>First appearance:<a href ="${character.episode[0]}" id="episode"> ${character.episode[0]}</a></p>
+    <p>First appearance:<a href ="${character.episode[0]}" class="episode"> ${character.episode[0]}</a></p>
     <p>Origin:  ${character.origin.name}</p>
     </div>
 
@@ -82,10 +82,15 @@ async function renderOneCharacter(character){
         link.style.color = 'inherit';
       });
     });
-    episode = document.getElementById(episode)
-    episode.addEventListener("click",function(e){
-      console.log("i've been clicked")
-    })
+    
+const episodes = document.querySelectorAll('.episode');
+
+episodes.forEach(episode => {
+  episode.addEventListener('click', e => {
+    e.preventDefault();
+    console.log("I've been clicked!");
+  });
+});
 }
 
 
