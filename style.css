@@ -36,20 +36,6 @@
   
 }
 
-/* like dislike div */
-.like-dislike-btn{
-  border: 1px solid red;
-  margin: 16px auto;
-  padding: 10px;
-
-}
-
-.like-btn{
-  size: 10px;
-  color: #3e8e41;
-  text-align: left;
-}
-
 .card img {
   width: 100%;
   height: auto;
@@ -73,30 +59,6 @@
   font-size: 1.2rem;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  border-top: 1px solid #ccc;
-}
-
-.buttons button {
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-
-.buttons button:hover {
-  background-color: #3e8e41;
-}
-
 h1 {
 text-align: center;
 color: #4CAF50;
@@ -112,17 +74,11 @@ body {
     gap: 20px;
   }
 
-
-  /* Style buttons */
+ /* Style buttons */
 .like-btn, .dislike-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-
-/* Style the active class (the clicked button) */
-.active {
-  color: red;
 }
 
 /* Style the count */
@@ -130,6 +86,38 @@ body {
   font-size: 20px;
 }
 
+.dislike-count{
+  font-size: 20px;
+}
 .like-dislike-btn{
-  margin-left: 50%;
+ 
+ }
+
+ /* like dislike div */
+.like-dislike-btn{
+  width: 100%;
+  padding: auto;
+  display: flex;
+  align-items: center;
+}
+
+.like-btn{
+  /* color: #19d11f; */
+  text-align: center;
+  margin-left: 0%;
+  font-size: large;
+}
+
+.like-btn:hover{
+  color: #19d11f;
+}
+
+.dislike-btn{
+  text-align: center;
+  margin-left: auto;
+  font-size: large;
+}
+
+.dislike-btn:hover{
+  color: red;
 }
