@@ -82,6 +82,10 @@ async function renderOneCharacter(character){
         link.style.color = 'inherit';
       });
     });
+    episode = document.getElementById(episode)
+    episode.addEventListener("click",function(e){
+      console.log("i've been clicked")
+    })
 }
 
 
