@@ -73,72 +73,80 @@ async function renderOneCharacter(character){
   // Add event listeners to all links on the card to change
 
 
-    const links = document.querySelectorAll('a');
+   // select all anchor tags on the page
+const links = document.querySelectorAll('a');
 
-    links.forEach(link => {
-      link.style.textDecoration = 'none';
-      link.style.color = 'inherit';
-      
-      link.addEventListener('mouseover', function() {
-        // link.style.textDecoration = 'underline';
-        link.style.color =  "rgb(139, 252, 148)";
-      });
-      
-      link.addEventListener('mouseout', function() {
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-      });
-    });
-    
+// apply styling to each link
+links.forEach(link => {
+  link.style.textDecoration = 'none'; // remove underline
+  link.style.color = 'inherit'; // inherit color from parent element
+
+  // add event listener for when user hovers over a link
+  link.addEventListener('mouseover', function() {
+    link.style.color =  "rgb(139, 252, 148)"; // change color on hover
+  });
+
+  // add event listener for when user hovers out of a link
+  link.addEventListener('mouseout', function() {
+    link.style.textDecoration = 'none'; // remove underline
+    link.style.color = 'inherit'; // inherit color from parent element
+  });
+});
+
+// select all elements with class "episode"
 const episodes = document.querySelectorAll('.episode');
 
+// add event listener to each episode element
 episodes.forEach(episode => {
   episode.addEventListener('click', e => {
-    e.preventDefault();
-    console.log("I've been clicked!");
+    e.preventDefault(); // prevent default link behavior
+
   });
 });
 }
 
-
-
+// array to store character data
 let characters = [];
 
+// function to fetch all characters from API and render them on the page
 function getAllCharacters(){
-  fetch(`https://rickandmortyapi.com/api/character/?page=19`)
-    .then(response => response.json())
+  fetch(`https://rickandmortyapi.com/api/character/?page=19`) // fetch data from API endpoint
+    .then(response => response.json()) // parse response as JSON
     .then(characterData => {
-      characters = characterData.results;
-      characters.forEach(character => renderOneCharacter(character));
+      characters = characterData.results; // store character data in array
+      characters.forEach(character => renderOneCharacter(character)); // render each character on the page
     }) 
 }
 
+// function to search characters based on user input
 function searchCharacters(query){
-    const filteredCharacters = characters.filter(character => {
-      const name = character.name.toLowerCase();
-      return name.includes(query.toLowerCase());
-    });
-    document.querySelector('#character-list').innerHTML = '';
-    filteredCharacters.forEach(character => renderOneCharacter(character));
-  }
-
-  document.querySelector('#search').addEventListener('input', (event) => {
-    const query = event.target.value.trim();
-    if (query.length > 0) {
-      searchCharacters(query);
-    } else {
-      document.querySelector('#character-list').innerHTML = '';
-      characters.forEach(character => renderOneCharacter(character));
-    }
-
+  const filteredCharacters = characters.filter(character => {
+    const name = character.name.toLowerCase();
+    return name.includes(query.toLowerCase()); // return true if character name includes query string
   });
- 
-function initialize(){
-    getAllCharacters()
+  document.querySelector('#character-list').innerHTML = ''; // clear existing character list
+  filteredCharacters.forEach(character => renderOneCharacter(character)); // render filtered characters
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  // your code here
-  initialize()
+// event listener for search input field
+document.querySelector('#search').addEventListener('input', (event) => {
+  const query = event.target.value.trim(); // get input value and trim whitespace
+  if (query.length > 0) {
+    searchCharacters(query); // filter characters based on query
+  } else {
+    document.querySelector('#character-list').innerHTML = ''; // clear existing character list
+    characters.forEach(character => renderOneCharacter(character)); // render all characters
+  }
 });
 
+
+
+// function to initialize page on load
+function initialize(){
+  getAllCharacters(); // fetch and render all characters
+}
+
+// event listener for when DOM is loaded
+document.addEventListener("DOMContentLoaded", function(event) {
+  initialize(); // initialize page
+});
