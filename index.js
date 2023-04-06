@@ -98,7 +98,12 @@ links.forEach(links =>{
   links.addEventListener("click",e =>{
   e.preventDefault();})
 })
-  
+
+species = document.getElementsByClassName("species")[0]
+species.addEventListener("click", () =>{
+  console.log("yoo")
+})
+
 // select all elements with class "episode"
 const episodes = document.querySelectorAll('.episode');
 
