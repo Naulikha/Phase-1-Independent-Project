@@ -32,12 +32,13 @@
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  
+  background-color: #332929;
 }
 
 .card:hover{
   transform: scale(1.1);
+  box-shadow: 10px 6px 10px 7px rgb(139, 252, 148);
+  transform: translateY(10px);
 }
 
 .card img {
@@ -56,12 +57,14 @@
 .content h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
+  color: white;
 }
 
 .content p {
   margin: 0.25rem 0;
-  font-size: 21px;
+  font-size: 22px;
   text-align: left;
+  color: white;
 }
 
 h1 {
@@ -98,15 +101,18 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: white;
 }
 
 /* Style the count */
 .like-count {
   font-size: 20px;
+  color: whitesmoke;
 }
 
 .dislike-count{
   font-size: 20px;
+  color: whitesmoke;
 }
 
  /* like dislike div */
