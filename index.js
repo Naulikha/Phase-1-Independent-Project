@@ -53,11 +53,11 @@ async function renderOneCharacter(character){
     <p>
     
     </p>
-    <p>Species: ${character.species}</p>
-    <p>Status:  ${character.status}</p>
-    <p>Gender: <a id="link" href ="${character.gender}"> ${character.gender}</a></p>
+    <p>Species: <a id="link" href ="${character.species}" class="species">${character.species}</a></p>
+    <p>Status:  <a id="link" href ="${character.status}" class="status">${character.status}</a></p>
+    <p>Gender: <a id="link" href ="${character.gender}" class="gender"> ${character.gender}</a></p>
     <p>First appearance:<a href ="${character.episode[0]}" class="episode"> ${character.episode[0]}</a></p>
-    <p>Origin:  ${character.origin.name}</p>
+    <p>Origin:  <a id="link" href ="${character.origin.name}" class="origin-name">${character.origin.name}</a></p>
     </div>
 
     `
