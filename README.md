@@ -19,6 +19,8 @@ Fetch API
 
 Getting Started
 
+To access this website simply click https://naulikha.github.io/Phase-1-Independent-Project/
+
 To get started with this project, follow these steps:
 
 Clone the repository to your local machine
