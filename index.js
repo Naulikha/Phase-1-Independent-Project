@@ -80,8 +80,8 @@ async function renderOneCharacter(character){
       link.style.color = 'inherit';
       
       link.addEventListener('mouseover', function() {
-        link.style.textDecoration = 'underline';
-        link.style.color = 'green';
+        // link.style.textDecoration = 'underline';
+        link.style.color =  "rgb(139, 252, 148)";
       });
       
       link.addEventListener('mouseout', function() {
