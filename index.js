@@ -76,8 +76,10 @@ async function renderOneCharacter(character){
    // select all anchor tags on the page
 const links = document.querySelectorAll('a');
 
+
 // apply styling to each link
 links.forEach(link => {
+ 
   link.style.textDecoration = 'none'; // remove underline
   link.style.color = 'inherit'; // inherit color from parent element
 
@@ -85,14 +87,18 @@ links.forEach(link => {
   link.addEventListener('mouseover', function() {
     link.style.color =  "rgb(139, 252, 148)"; // change color on hover
   });
-
+ 
   // add event listener for when user hovers out of a link
   link.addEventListener('mouseout', function() {
     link.style.textDecoration = 'none'; // remove underline
     link.style.color = 'inherit'; // inherit color from parent element
   });
 });
-
+links.forEach(links =>{
+  links.addEventListener("click",e =>{
+  e.preventDefault();})
+})
+  
 // select all elements with class "episode"
 const episodes = document.querySelectorAll('.episode');
 
